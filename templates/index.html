@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ username }}</h1>
+    <p>Trenutno imaš {{ number_of_tasks }} zadataka.</p>
+
+    <form action="/logout" method="post">
+        <button type="submit">Odjavi se</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.name }}
+                <form action="/delete_task/{{ task.id }}" method="post" style="display:inline;">
+                    <button type="submit">Obriši</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <form action="/add_task" method="post">
+        <input type="text" name="task" placeholder="Unesi novi zadatak" required>
+        <button type="submit">Dodaj zadatak</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+    
+{% block title %}Registracija{% endblock %}
+
+{% block content %}
+    <h2>Registracija</h2>
+    <form action="/register" method="post">
+        <label for="username">Korisničko ime:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Lozinka:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Registruj se</button>
+    </form>
+{% endblock %}
